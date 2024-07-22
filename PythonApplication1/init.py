@@ -2,12 +2,13 @@
 
 import sqlite3
 import random
-conn = sqlite3.connect("poem.db")
+
 class PoemRandom : #生成问题
     #预定义public变量
     question=["","","",""]
     ans=0
     def poemra(self) : #生成随机古诗
+        conn = sqlite3.connect("poem.db")
         cursor = conn.cursor()
         id=random.randint(1,240000)
         cursor.execute("select * from poem where _id="+str(id))
@@ -17,6 +18,7 @@ class PoemRandom : #生成问题
            return(item[13])
            item[13]
         cursor.close()
+        conn.close()
     def broken(self):#生成混淆项
         str=self.poemra()
         parts=str.split(",")
@@ -67,5 +69,5 @@ if __name__=="__main__":
 
 
 
-conn.close()
+
 
