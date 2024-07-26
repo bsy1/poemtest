@@ -1,64 +1,93 @@
-# -*- coding: GB2312 -*-
-import sys
-from tabnanny import check
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QPushButton, QMessageBox
-from PySide6.QtCore import Qt
-from data import PoemRandom
+# -*- coding: gb2312 -*-
 
-class PoemApp(QWidget):
+# @Time    : 2023/9/25 22:03
+# @Author  : MinChess
+# @File    : main.py
+# @Software: PyCharm
+from ast import While
+import sys
+from tkinter.messagebox import QUESTION
+from PySide6.QtCore import QFile, QIODevice, Slot
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtWidgets import QApplication, QMainWindow, QMessageBox, QPushButton, QTextBrowser
+from PySide6.QtGui import QAction
+
+from data import PoemRandom
+poem=PoemRandom()
+c=poem.init()
+ques=c[1]
+# 定义主窗口类
+class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.poem_generator = PoemRandom()  # 初始化 PoemRandom 类获取数据
-        self.currentIndex = 0  # 当前显示的古诗索引
 
-        self.initUI()
-        self.loadNewPoem()  # 初始化时加载第一首古诗
+        # 加载UI文件
+        loader = QUiLoader()
+        ui_file = QFile("main.ui")
+        if not ui_file.open(QIODevice.ReadOnly):
+            print("无法打开UI文件")
+            sys.exit(-1)
 
-    def initUI(self):
-        self.setWindowTitle('随机古诗问答')
-        self.setGeometry(100, 100, 400, 300)
+        # 加载UI文件并实例化为窗口对象
+        self.window = loader.load(ui_file)
 
-        self.label = QLabel(self)
-        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.button1 = QPushButton(self)
-        self.button2 = QPushButton(self)
-        self.button3 = QPushButton(self)
-
-        self.button1.clicked.connect(lambda: self.checkAnswer(1))
-        self.button2.clicked.connect(lambda: self.checkAnswer(2))
-        self.button3.clicked.connect(lambda: self.checkAnswer(3))
-
-        layout = QVBoxLayout()
-        layout.addWidget(self.label)
-        layout.addWidget(self.button1)
-        layout.addWidget(self.button2)
-        layout.addWidget(self.button3)
-
-        self.setLayout(layout)
-
+        # 关闭UI文件
+        ui_file.close()
+        self.question_textbox = self.window.findChild(QTextBrowser, "question")
+        # 获取UI文件中的小部件对象
+        self.button1 = self.window.findChild(QPushButton, "ans1")
+        self.button2 = self.window.findChild(QPushButton, "ans2")
+        self.button3 = self.window.findChild(QPushButton, "ans3")
+        
+        # 连接信号和槽
+        action_about_my = self.window.findChild(QAction, "my")
+        action_about_my.triggered.connect(self.show_my_message)
+        self.loadNewPoem()
+        self.button1.clicked.connect(self.ans1_click)
+        self.button2.clicked.connect(self.ans2_click)
+        self.button3.clicked.connect(self.ans3_click)
     def loadNewPoem(self):
-        self.poem_data = self.poem_generator.init()  # 获取新的古诗数据
+        self.poem_data = poem.init()  # 获取新的古诗数据
         self.updateUI()
 
     def updateUI(self):
-        self.label.setText(self.poem_data[0])
+        self.question_textbox.setText(self.poem_data[0])
         self.button1.setText(self.poem_data[1])
         self.button2.setText(self.poem_data[2])
         self.button3.setText(self.poem_data[3])
-
-    def checkAnswer(self, button_index):
-        #correct_index = self.poem_data[0]  # 正确答案的索引（假设在列表第五个位置）
-
-        if self.poem_generator.check(button_index) :
+    # 按钮点击事件处理函数
+    @Slot()
+              
+    def ans1_click(self):
+         if poem.check(1):
             QMessageBox.information(self, '结果', '回答正确！')
-        else:
+         else:
             QMessageBox.critical(self, '结果', '回答错误！')
+         self.loadNewPoem()
+    @Slot()
+    def ans2_click(self):
+         if poem.check(2):
+            QMessageBox.information(self, '结果', '回答正确！')
+         else:
+            QMessageBox.critical(self, '结果', '回答错误！')
+         self.loadNewPoem()
+    @Slot()
+    def ans3_click(self):
+         if poem.check(3):
+            QMessageBox.information(self, '结果', '回答正确！')
+         else:
+            QMessageBox.critical(self, '结果', '回答错误！')
+         self.loadNewPoem()
+    @Slot()
+    def show_my_message(self):
+        QMessageBox.information(self, "About My", "由hsbsy设计开发，github：https://github.com/bsy1/poemtest")    
 
-        self.loadNewPoem()  # 检查完答案后，加载新的古诗数据
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = PoemApp()
-    window.show()
-    sys.exit(app.exec())
+if __name__ == "__main__":
+    app = QApplication([])
+    main_window = MainWindow()
+    main_window.window.show()
+    app.exec()
+    
+        
+
