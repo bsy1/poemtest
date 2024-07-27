@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main</class>
+ <widget class="QMainWindow" name="main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>古诗提问</string>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTextBrowser" name="question">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>40</y>
+      <width>701</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ans1">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>250</y>
+      <width>701</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ans2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>370</y>
+      <width>701</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ans3">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>480</y>
+      <width>701</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="title">
+      <string>账号</string>
+     </property>
+     <addaction name="quit"/>
+     <addaction name="change"/>
+     <addaction name="information"/>
+    </widget>
+    <addaction name="MyLike"/>
+    <addaction name="Found"/>
+    <addaction name="menu_2"/>
+   </widget>
+   <widget class="QMenu" name="about">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="my"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="about"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="quit">
+   <property name="text">
+    <string>退出登录</string>
+   </property>
+  </action>
+  <action name="change">
+   <property name="text">
+    <string>切换账号</string>
+   </property>
+  </action>
+  <action name="information">
+   <property name="text">
+    <string>信息</string>
+   </property>
+  </action>
+  <action name="MyLike">
+   <property name="text">
+    <string>我的收藏</string>
+   </property>
+  </action>
+  <action name="Found">
+   <property name="text">
+    <string>查询古诗</string>
+   </property>
+  </action>
+  <action name="my">
+   <property name="text">
+    <string>作者</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
