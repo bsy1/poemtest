@@ -88,7 +88,6 @@
       <string>账号</string>
      </property>
      <addaction name="quit"/>
-     <addaction name="change"/>
      <addaction name="information"/>
     </widget>
     <addaction name="MyLike"/>
