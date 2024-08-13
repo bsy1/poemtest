@@ -1,67 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>foundm</class>
- <widget class="QMainWindow" name="foundm">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>844</width>
+    <height>673</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>查询古诗</string>
+   <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QTableView" name="list1">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>220</y>
-      <width>691</width>
-      <height>331</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="found1">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>50</y>
-      <width>451</width>
-      <height>70</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="found2">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>50</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>查找</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="love">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>120</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>添加收藏</string>
-    </property>
-   </widget>
+  <widget class="QPushButton" name="love">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>150</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>添加收藏</string>
+   </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QPushButton" name="found2">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>80</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>查找</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="found1">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>80</y>
+     <width>451</width>
+     <height>70</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="list">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>270</y>
+     <width>661</width>
+     <height>351</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

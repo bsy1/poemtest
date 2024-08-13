@@ -46,7 +46,23 @@ class PoemRandom : #生成问题
         return self.question
     def check(self,b):
         return b==self.ans
-
+class FindData:
+    def ff(self, query_text):
+        """生成随机古诗"""
+        conn = sqlite3.connect("poem.db")
+        cursor = conn.cursor()
+        try:
+            id = random.randint(1, 240000)
+            query = "SELECT yuanwen FROM poem WHERE mingcheng LIKE ?"
+            cursor.execute(query, (f'%{query_text}%',))
+            results = cursor.fetchall()
+            return results
+        except sqlite3.Error as e:
+            print(f"Database error: {e}")
+            return []
+        finally:
+            cursor.close()
+            conn.close()
 
         
 
