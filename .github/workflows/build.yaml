@@ -1,7 +1,36 @@
 on: push
 
 jobs:
-    job1:
-        runs-on: ubuntu-latest
-        steps:
-              - run: python -v
+  job1:
+    name: The build on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Python
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+      - name: Install dependencies
+        run: |
+          source venv/bin/activate
+          pip install PySide6 pyinstaller
+      - name: Build application
+        run: |
+          source venv/bin/activate
+          pyinstaller main.spec
+
+  job2:
+    name: The build on Windows
+    runs-on: windows-latest
+    steps:
+      - name: Set up Python
+        run: |
+          python -m venv venv
+          venv\Scripts\activate
+      - name: Install dependencies
+        run: |
+          venv\Scripts\activate
+          pip install PySide6 pyinstaller
+      - name: Build application
+        run: |
+          venv\Scripts\activate
+          pyinstaller main.spec

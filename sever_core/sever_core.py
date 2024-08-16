@@ -8,7 +8,16 @@
 from ast import While
 from gettext import find
 import sys
-
+def processPath(path):
+    '''
+    :param path: 相对于根目录的路径
+    :return: 拼接好的路径
+    '''
+    if getattr(sys, 'frozen', False):  # 判断是否存在属性frozen，以此判断是打包的程序还是源代码。false为默认值，即没有frozen属性时返回false
+        base_path = sys._MEIPASS #该属性也是打包程序才会有，源代码尝试获取该属性会报错
+    else:
+        base_path = os.path.abspath(".") # 当源代码运行时使用该路径
+    return os.path.join(base_path, path)
 
 class DualOutput:
     def __init__(self, filename):
@@ -19,7 +28,7 @@ class DualOutput:
         with open(self.filename, 'a') as file:
             file.write(message)
         # 输出到控制台
-        sys.__stdout__.write(message)
+        
 
     def flush(self):
         # 兼容文件流，通常不需要处理
@@ -56,7 +65,7 @@ class MainWindow(QMainWindow):
         
         # 加载UI文件
         loader = QUiLoader()
-        ui_file = QFile("main.ui")
+        ui_file = QFile(processPath("main.ui"))
         if not ui_file.open(QIODevice.ReadOnly):
             print("无法打开UI文件")
             sys.exit(-1)

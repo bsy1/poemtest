@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "sever_core", "sever_core\sever_core.pyproj", "{02D6906C-DF68-44E0-8A34-0DA6878AA3CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{104FE337-0A02-4744-9CB7-70489D05EF49}"
+	ProjectSection(SolutionItems) = preProject
+		main.spec = main.spec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
