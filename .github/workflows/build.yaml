@@ -16,6 +16,7 @@ jobs:
       - name: Build application
         run: |
           source venv/bin/activate
+          ls
           pyinstaller main.spec
 
   job2:
