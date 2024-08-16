@@ -14,6 +14,11 @@ jobs:
       - name: Build application
         run: |
           pyinstaller main.spec
+      - name: Upload compiled files
+        uses: actions/upload-artifact@v3
+        with:
+          name: compiled-files
+          path: dist/
 
   job2:
     name: The build on Windows
@@ -27,3 +32,8 @@ jobs:
       - name: Build application
         run: |
           pyinstaller main.spec
+      - name: Upload compiled files
+        uses: actions/upload-artifact@v3
+        with:
+          name: compiled-files
+          path: dist/
