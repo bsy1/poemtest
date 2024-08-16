@@ -71,7 +71,7 @@ jobs:
       - name: Create ZIP file
         run: |
           mkdir release
-          zip -r release/app.zip dist/
+          Compress-Archive -Path dist/* -DestinationPath release/app.zip
 
       - name: Upload ZIP file
         uses: actions/upload-artifact@v3
