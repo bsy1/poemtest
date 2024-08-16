@@ -21,6 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="init.py" />
     <Compile Include="sever_core.py" />
     <Compile Include="ui_found.py" />
     <Compile Include="ui_login.py" />

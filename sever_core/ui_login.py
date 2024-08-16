@@ -16,7 +16,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCommandLinkButton, QDialog, QLabel,
-    QPushButton, QSizePolicy, QTextEdit, QWidget)
+    QPushButton, QSizePolicy, QLineEdit, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -27,16 +27,22 @@ class Ui_Dialog(object):
         self.label = QLabel(Dialog)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(20, 30, 71, 21))
-        self.passwd = QTextEdit(Dialog)
-        self.passwd.setObjectName(u"textEdit_2")
+        
+        # Replace QTextEdit with QLineEdit for single-line input
+        self.passwd = QLineEdit(Dialog)
+        self.passwd.setObjectName(u"passwd")
         self.passwd.setGeometry(QRect(110, 70, 271, 41))
+        
         self.init = QPushButton(Dialog)
         self.init.setObjectName(u"init")
         self.init.setGeometry(QRect(160, 120, 151, 41))
+        
         self.label_2 = QLabel(Dialog)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(20, 80, 54, 16))
-        self.users = QTextEdit(Dialog)
+        
+        # Replace QTextEdit with QLineEdit for single-line input
+        self.users = QLineEdit(Dialog)
         self.users.setObjectName(u"users")
         self.users.setGeometry(QRect(110, 20, 271, 41))
 

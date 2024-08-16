@@ -53,7 +53,7 @@ class FindData:
         cursor = conn.cursor()
         try:
             id = random.randint(1, 240000)
-            query = "SELECT yuanwen FROM poem WHERE mingcheng LIKE ?"
+            query = "SELECT * FROM poem WHERE mingcheng LIKE ?"
             cursor.execute(query, (f'%{query_text}%',))
             results = cursor.fetchall()
             return results
@@ -63,6 +63,10 @@ class FindData:
         finally:
             cursor.close()
             conn.close()
+class users:
+    def __init__(self):
+        userdb=sqlite3.connect("User.db")
+
 
         
 

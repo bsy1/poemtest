@@ -69,6 +69,19 @@
      <string>c</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="modeset">
+    <property name="geometry">
+     <rect>
+      <x>339</x>
+      <y>522</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>切换</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -76,7 +89,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">

@@ -49,13 +49,13 @@
     </rect>
    </property>
   </widget>
-  <widget class="QListWidget" name="list">
+  <widget class="QTableWidget" name="table">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>270</y>
-     <width>661</width>
-     <height>351</height>
+     <x>80</x>
+     <y>300</y>
+     <width>681</width>
+     <height>341</height>
     </rect>
    </property>
   </widget>

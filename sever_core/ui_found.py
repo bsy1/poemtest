@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'foundZArbYQ.ui'
+## Form generated from reading UI file 'foundHFdYyi.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.7.2
 ##
@@ -15,8 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QDialog, QListWidget, QListWidgetItem,
-    QPushButton, QSizePolicy, QTextEdit, QWidget)
+from PySide6.QtWidgets import (QApplication, QDialog, QHeaderView, QPushButton,
+    QSizePolicy, QTableWidget, QTableWidgetItem, QTextEdit,
+    QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -32,9 +33,9 @@ class Ui_Dialog(object):
         self.found1 = QTextEdit(Dialog)
         self.found1.setObjectName(u"found1")
         self.found1.setGeometry(QRect(80, 80, 451, 70))
-        self.list = QListWidget(Dialog)
-        self.list.setObjectName(u"list")
-        self.list.setGeometry(QRect(90, 270, 661, 351))
+        self.table = QTableWidget(Dialog)
+        self.table.setObjectName(u"table")
+        self.table.setGeometry(QRect(80, 300, 681, 341))
 
         self.retranslateUi(Dialog)
 
