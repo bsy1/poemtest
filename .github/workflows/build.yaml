@@ -20,7 +20,36 @@ jobs:
         with:
           name: compiled-files
           path: dist/
+      - name: Create ZIP file
+        run: |
+          mkdir release
+          zip -r release/app.zip dist/
 
+      - name: Upload ZIP file
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-zip
+          path: release/app.zip
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.0.0
+          release_name: "Release v1.0.0"
+          body: "This is the release of version 1.0.0"
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release/app.zip
+          asset_name: app.zip
+          asset_content_type: application/zip
   job2:
     name: The build on Windows
     runs-on: windows-latest
@@ -39,3 +68,33 @@ jobs:
         with:
           name: compiled-files
           path: dist/
+      - name: Create ZIP file
+        run: |
+          mkdir release
+          zip -r release/app.zip dist/
+
+      - name: Upload ZIP file
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-zip
+          path: release/app.zip
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v1.0.0
+          release_name: "Release v1.0.0"
+          body: "This is the release of version 1.0.0"
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release/app.zip
+          asset_name: app.zip
+          asset_content_type: application/zip
