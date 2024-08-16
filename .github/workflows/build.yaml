@@ -11,12 +11,11 @@ jobs:
           source venv/bin/activate
       - name: Install dependencies
         run: |
-          source venv/bin/activate
           pip install PySide6 pyinstaller
       - name: Build application
         run: |
-          source venv/bin/activate
-          ls
+          
+         
           pyinstaller main.spec
 
   job2:
