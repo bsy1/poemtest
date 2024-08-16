@@ -39,7 +39,7 @@ jobs:
         with:
           tag_name: v1.0.0
           release_name: "Release v1.0.0"
-          body: "This is the release of version 1.0.0"
+          body: "This is the release of version 1.0.0 on Linux"
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
@@ -87,7 +87,7 @@ jobs:
         with:
           tag_name: v1.0.0
           release_name: "Release v1.0.0"
-          body: "This is the release of version 1.0.0"
+          body: "This is the release of version 1.0.0 on Windows"
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
