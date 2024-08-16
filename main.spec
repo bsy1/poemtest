@@ -7,7 +7,9 @@ a = Analysis(
     ['sever_core/sever_core.py'],
     pathex=[],
     binaries=[],
-    datas=[('sever_core/main.ui','.')], #ui文件，使用qt设计师画的页面
+    datas=[('sever_core/main.ui','.'),
+            ('sever_core/User.db','.')    
+     ], #ui文件，使用qt设计师画的页面
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

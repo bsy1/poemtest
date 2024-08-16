@@ -14,6 +14,7 @@ jobs:
       - name: Build application
         run: |
           pyinstaller main.spec
+          cp ./sever_core/User.db ./dist
       - name: Upload compiled files
         uses: actions/upload-artifact@v3
         with:
@@ -32,6 +33,7 @@ jobs:
       - name: Build application
         run: |
           pyinstaller main.spec
+          cp ./sever_core/User.db ./dist
       - name: Upload compiled files
         uses: actions/upload-artifact@v3
         with:

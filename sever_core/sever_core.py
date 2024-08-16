@@ -180,6 +180,7 @@ class user_login(QDialog):
             return
         
         self.userid = userc.login(users, key)
+        self.userid = userc.login(users, key)
         if self.userid != -1:
             self.username = users
             self.close()
