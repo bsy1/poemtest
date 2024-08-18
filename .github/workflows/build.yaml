@@ -37,9 +37,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.mybuild }}
         with:
-          tag_name: v1.1.1
-          release_name: "Release v1.1.1"
-          body: "This is the release of version 1.1.1 on Linux:Make the new UI."
+          tag_name: v1.1.21
+          release_name: "Release v1.1.21"
+          body: "This is the release of version 1.1.21 on Linux:Make the new UI."
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
@@ -85,9 +85,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.mybuild}}
         with:
-          tag_name: v1.1.2
-          release_name: "Release v1.1.2"
-          body: "This is the release of version 1.1.2 on Windows:Make the new UI."
+          tag_name: v1.1.20
+          release_name: "Release v1.1.20"
+          body: "This is the release of version 1.1.20 on Windows:Make the new UI."
 
       - name: Upload Release Asset
         uses: actions/upload-release-asset@v1
