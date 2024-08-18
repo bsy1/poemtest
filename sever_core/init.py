@@ -3,6 +3,7 @@
 import sqlite3
 import random
 import json
+from typing import Self
 
 def get_random_element(data_list):
     if data_list:
@@ -18,7 +19,10 @@ class PoemRandom : #生成问题
         conn = sqlite3.connect("poem.db")
         cursor = conn.cursor()
         if modes:
-             id=int(get_random_element(self.poemlist))
+             if self.poemlist:
+                 id=int(get_random_element(self.poemlist))
+             else:
+                 raise NameError("没有收藏内容！")
         else:
              id=random.randint(1,240000)
         cursor.execute("select * from poem where _id="+str(id))

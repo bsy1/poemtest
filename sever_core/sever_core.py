@@ -81,6 +81,7 @@ class MainWindow(QMainWindow):
         self.button2 = self.window.findChild(QPushButton, "ans2")
         self.button3 = self.window.findChild(QPushButton, "ans3")
         self.button4 = self.window.findChild(QPushButton, "modeset")
+        self.scr=self.window.findChild(QLabel,"modescr")
         # 连接信号和槽
         action_about_mylike = self.window.findChild(QAction, "MyLike")
         action_about_mylike.triggered.connect(self.show_mylike_message)
@@ -98,9 +99,11 @@ class MainWindow(QMainWindow):
         self.button3.clicked.connect(self.ans3_click)
         self.button4.clicked.connect(self.modeset)
     def loadNewPoem(self):
-        self.poem_data = poem.init(self.modes)  # 获取新的古诗数据
-        self.updateUI()
-
+        try:
+            self.poem_data = poem.init(self.modes)  # 获取新的古诗数据
+            self.updateUI()
+        except NameError as e:
+            QMessageBox.warning(self,"Error",repr(e))
     def updateUI(self):
         self.question_textbox.setText(self.poem_data[0])
         self.button1.setText(self.poem_data[1])
@@ -148,6 +151,11 @@ class MainWindow(QMainWindow):
     @Slot()
     def modeset(self):
         self.modes = not self.modes
+       
+        if not self.modes:
+            self.scr.setText("混合模式")
+        else:
+            self.scr.setText("收藏模式")
         self.loadNewPoem()
     def show_mylike_message(self):
         likee=Poemlike()
@@ -243,7 +251,7 @@ class findpoem(QDialog):
         
         # 设置表头
         self.ui.table.setHorizontalHeaderLabels(["id","Title", "Author", "Content"])
-        
+        self.ui.table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         # 将查询结果添加到 QTableWidget 中
         for index, row in enumerate(founddata):
             for col, data in enumerate([row[0],row[1], row[2], row[13]]):  # Title, Author, Content
