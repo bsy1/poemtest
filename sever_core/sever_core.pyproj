@@ -29,7 +29,6 @@
   <ItemGroup>
     <Content Include="found.ui" />
     <Content Include="login.ui" />
-    <Content Include="main.pyqtdeploy" />
     <Content Include="main.ui" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
